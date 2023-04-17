@@ -28,6 +28,11 @@ function App() {
     {/* 첫번째 상품 */}
     <div className="col-md-4">
       <img src="https://codingapple1.github.io/shop/shoes1.jpg" width='80%'/>
+      {/* <img src="/logo192.png" width='80%'/>
+      {/* codingapple.com/어쩌구/에 발행*/}
+      {/* <img src="/어쩌구/logo192.png" width='80%'/> => 대신
+      <img src={process.env.PUBLIC_URL+ '/logo192.png'} width='80%'/>
+      => process.env.PUBLIC_URL는 내 사이트의 현재 경로  */}
       <h4>상품명</h4>
       <p>상품 설명</p>
     </div>
