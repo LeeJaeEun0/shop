@@ -3,13 +3,14 @@ import './App.css';
 import  bg from './img/bg.png'; // import 작명 from '이미지 경로'
 import { useState } from 'react';
 //import a from './data.js'; // 한개의 변수만 가져온 경우
-import {a,b} from './data.js'; // 두개의 변수만 가져온 경우
-
+//import {a,b} from './data.js'; // 두개의 변수만 가져온 경우
+import data from './data.js';
 function App() {
-  let [shoes] = useState();
+  let [shoes] = useState(data);
+
   return (
     <div className="App">
-    {a}
+
      {/* <Button variant="primary" size="lg">Large button </Button> */}
 
      <Navbar bg="primary" variant="dark">
@@ -30,33 +31,32 @@ function App() {
     {/* 상품 레이아웃 3개 만들기 */}
     <div className="container">
   <div className="row">
-    {/* 첫번째 상품 */}
-    <div className="col-md-4">
-      <img src="https://codingapple1.github.io/shop/shoes1.jpg" width='80%'/>
-      {/* <img src="/logo192.png" width='80%'/>
-      {/* codingapple.com/어쩌구/에 발행*/}
-      {/* <img src="/어쩌구/logo192.png" width='80%'/> => 대신
-      <img src={process.env.PUBLIC_URL+ '/logo192.png'} width='80%'/>
-      => process.env.PUBLIC_URL는 내 사이트의 현재 경로  */}
-      <h4>상품명</h4>
-      <p>상품 설명</p>
-    </div>
-    {/* 두번째 상품 */}
-    <div className="col-md-4">
-    <img src="https://codingapple1.github.io/shop/shoes2.jpg" width='80%'/>
-      <h4>상품명</h4>
-      <p>상품 설명</p>
-    </div>
-    {/* 세번째 상품 */}
-    <div className="col-md-4">
-    <img src="https://codingapple1.github.io/shop/shoes3.jpg" width='80%'/>
-      <h4>상품명</h4>
-      <p>상품 설명</p>
-    </div>
-  </div>
-</div> 
+    {/* <Card shoes={shoes[0]} i={0}></Card>
+    <Card shoes={shoes[1]} i={1}></Card>
+    <Card shoes={shoes[2]} i={2}></Card> */}
+  {
+    shoes.map((a, i) =>{
+      return(
+      <Card shoes={shoes[i]} i={i+1}></Card>
+        )
+        })
+  }
+        </div>
+
+        </div> 
     </div>
   );
+}
+
+function Card(props){
+  return(
+  <div className="col-md-4">
+  <img src={"https://codingapple1.github.io/shop/shoes"+props.i+".jpg"} width='80%'/>
+      <h4>{props.shoes.title}</h4>
+      <p>{props.shoes.price}</p>
+    </div>
+  )
+  
 }
 
 export default App;

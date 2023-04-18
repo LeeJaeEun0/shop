@@ -1,7 +1,7 @@
 .main-bg{
   height: 300px;
   /*background-image: url('./bg.png');*/ /*사진의 경로*/
-  /*background-image: url('./img/bg.png');*/ /*사진의 경로*/
+  background-image: url('./img/bg.png'); /*사진의 경로*/
   background-size: cover; /*사진의 크기 조절: 원본이 너무커서*/
   background-position: center; /*크기가 변해도 가운데*/
   background-position: center; /*크기가 변해도 가운데*/
