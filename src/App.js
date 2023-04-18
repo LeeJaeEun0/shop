@@ -1,10 +1,14 @@
 import {Button , Nav, Navbar, Container} from 'react-bootstrap';
 import './App.css';
 import  bg from './img/bg.png'; // import 작명 from '이미지 경로'
+import { useState } from 'react';
+import a from './data.js';
 
 function App() {
+  let [shoes] = useState();
   return (
     <div className="App">
+      {a}
      {/* <Button variant="primary" size="lg">Large button </Button> */}
 
      <Navbar bg="primary" variant="dark">
