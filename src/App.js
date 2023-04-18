@@ -2,13 +2,14 @@ import {Button , Nav, Navbar, Container} from 'react-bootstrap';
 import './App.css';
 import  bg from './img/bg.png'; // import 작명 from '이미지 경로'
 import { useState } from 'react';
-import a from './data.js';
+//import a from './data.js'; // 한개의 변수만 가져온 경우
+import {a,b} from './data.js'; // 두개의 변수만 가져온 경우
 
 function App() {
   let [shoes] = useState();
   return (
     <div className="App">
-      {a}
+    {a}
      {/* <Button variant="primary" size="lg">Large button </Button> */}
 
      <Navbar bg="primary" variant="dark">
