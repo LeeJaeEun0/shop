@@ -5,6 +5,9 @@ import { useState } from 'react';
 //import a from './data.js'; // 한개의 변수만 가져온 경우
 //import {a,b} from './data.js'; // 두개의 변수만 가져온 경우
 import data from './data.js';
+import {Routes, Route, Link } from 'react-router-dom' // Router 사용하기 위해서 import
+import Detail from './reoutes/Detail';
+
 function App() {
   let [shoes] = useState(data);
 
@@ -23,6 +26,17 @@ function App() {
           </Nav>
         </Container>
       </Navbar>
+
+      <Link to="/">홈</Link>
+      <Link to="/detail">상세페이지</Link>
+
+
+      
+      <Routes> {/* 사이트에서 필요한 페이지의 개수만큼 만들기 */}
+        <Route path='/' element={<div>메인페이지</div>}/>
+        <Route path='/detail' element={<Detail/>}/>
+        {/* <Route path='/about' element={<div>어바웃페이지</div>}/> */}
+      </Routes>
 
     {/* <div className='main-bg'></div> */}
     {/* html에서 이미지 넣을 경우 -> import 필요함 */}
