@@ -88,6 +88,9 @@ function App() {
           <Route path="one" element={<p>첫 주문시 양배추즙 서비스</p>}/>
           <Route path="two" element={<p>생활기념 쿠폰 받기</p>}/>
         </Route>
+
+        {/* 페이지를 여러개 만들고 싶으면 :URL 파라미터 만들수 있음 */}
+        <Route path="/detail/:id" element={<Detail shoes={shoes}/>}></Route>
       </Routes>
     </div>
   );
