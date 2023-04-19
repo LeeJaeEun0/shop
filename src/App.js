@@ -39,8 +39,8 @@ function App() {
         <Route path='/about/location' element={<About/>}/> */}
         {/* tag 안의 태그: nested route */}
         <Route path='/about' element={<About/>}>
-          <Route path='/about/member' element={<About/>}/>
-          <Route path='/about/location' element={<About/>}/>
+          <Route path='member' element={<div>멤버임</div>}/>
+          <Route path='location' element={<div>위치 정보임</div>}/>
         </Route>
 
       </Routes>
@@ -84,6 +84,8 @@ function About(){
   return(
     <div>
       <h4>회사 정보명</h4>
+      <Outlet></Outlet>
+      {/* nested routes의 element 보여주는 곳 */}
     </div>
   )
 }
