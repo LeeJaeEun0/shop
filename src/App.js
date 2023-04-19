@@ -5,12 +5,13 @@ import { useState } from 'react';
 //import a from './data.js'; // 한개의 변수만 가져온 경우
 //import {a,b} from './data.js'; // 두개의 변수만 가져온 경우
 import data from './data.js';
-import {Routes, Route, Link } from 'react-router-dom' // Router 사용하기 위해서 import
+import {Routes, Route, Link, useNavigate, Outlet} from 'react-router-dom' // Router 사용하기 위해서 import
 import Detail from './reoutes/Detail';
 
 function App() {
   let [shoes] = useState(data);
-
+  // 1. 페이지 이동 도와주는 useNavigate()
+  let navigate = useNavigate();
   return (
     <div className="App">
 
@@ -18,24 +19,30 @@ function App() {
 
      <Navbar bg="primary" variant="dark">
         <Container>
-          <Navbar.Brand href="#home">clock</Navbar.Brand>
+          <Navbar.Brand href="#home">shoes</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Cart</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <Nav.Link onClick={()=>{navigate(-1)}}>Home</Nav.Link>  {/*navigate('/')*/}
+            <Nav.Link onClick={()=>{navigate('/detail')}}>Cart</Nav.Link> {/* navigate는 입력된 경로로 이동함 */}
           </Nav>
         </Container>
       </Navbar>
 
-      <Link to="/">홈</Link>
-      <Link to="/detail">상세페이지</Link>
-
-
-      
       <Routes> {/* 사이트에서 필요한 페이지의 개수만큼 만들기 */}
         <Route path='/' element={<div>메인페이지</div>}/>
         <Route path='/detail' element={<Detail/>}/>
+        <Route path='*' element={<div>없는 페이지 404에러</div>}/> {/*지정한 페이지 이외의 모든 값을 입력하면 오류 발생 */}
         {/* <Route path='/about' element={<div>어바웃페이지</div>}/> */}
+
+        {/* 여러 페이지에 같은 html 태크를 출력하고 싶은 경우 */}
+        {/* <Route path='/about' element={<About/>}/>
+        <Route path='/about/member' element={<About/>}/>
+        <Route path='/about/location' element={<About/>}/> */}
+        {/* tag 안의 태그: nested route */}
+        <Route path='/about' element={<About/>}>
+          <Route path='/about/member' element={<About/>}/>
+          <Route path='/about/location' element={<About/>}/>
+        </Route>
+
       </Routes>
 
     {/* <div className='main-bg'></div> */}
@@ -71,6 +78,14 @@ function Card(props){
     </div>
   )
   
+}
+
+function About(){
+  return(
+    <div>
+      <h4>회사 정보명</h4>
+    </div>
+  )
 }
 
 export default App;
