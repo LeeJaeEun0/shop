@@ -14,7 +14,7 @@ function Detail(props){
       <h4 className="pt-5">{props.shoes[id].title}</h4>
       <p>{props.shoes[id].content}</p>
       <p>{props.shoes[id].price}</p>
-      <button className="btn btn-danger">주문하기</button> 
+      <button classxzName="btn btn-danger">주문하기</button> 
     </div>
   </div>
 </div> 
