@@ -6,10 +6,11 @@ import { useState } from "react";
 //import {a,b} from './data.js'; // 두개의 변수만 가져온 경우
 import data from "./data.js";
 import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom"; // Router 사용하기 위해서 import
-import Detail from "./reoutes/Detail";
+import Detail from "./routes/Detail.js";
+
 
 function App() {
-  let [shoes] = useState(data);
+  let [shoes, shoeschange] = useState(data);
   // 1. 페이지 이동 도와주는 useNavigate()
   let navigate = useNavigate();
   return (
@@ -39,7 +40,6 @@ function App() {
           </Nav>
         </Container>
       </Navbar>
-
       <Routes>
         {" "}
         {/* 사이트에서 필요한 페이지의 개수만큼 만들기 */}
@@ -53,7 +53,6 @@ function App() {
                 className="main-bg"
                 style={{ backgroundImage: "url(" + bg + ")" }}
               ></div>
-
               {/* 상품 레이아웃 3개 만들기 */}
               <div className="container">
                 <div className="row">
