@@ -1,5 +1,12 @@
 import { useParams } from "react-router-dom";
 import styled from "styled-components"; // styled를 사용하기 위한 import
+// css파일이 아니 js파일에서 style를 작성하기 위함
+let YellowBtn = styled.button` // 하나의 컴포넌트를 작성함
+  background: yellow;
+  color: black;
+  padding: 10px;
+`
+
 
 function Detail(props) {
   let { id } = useParams();
@@ -7,11 +14,9 @@ function Detail(props) {
     return x.id == id; // shoes의 id와 입력받은 id가 같을 경우를 찾음
   });
 
-  console.log(id);
-
   return (
     <div className="container">
-      <div>버튼</div>
+      <YellowBtn>버튼</YellowBtn>
       <div className="row">
         <div className="col-md-6">
           <img
