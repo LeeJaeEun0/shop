@@ -12,6 +12,20 @@ let YellowBtn = styled.button` // 하나의 컴포넌트를 작성함
 //   padding: 10px;
 // `
 
+// 옛날 방식
+// class Detail2 extends React.Component{ 
+//   // 컴포넌의 lifecycle에서 중간중간 실행하기 위해서 컴포넌트에 갈고리 다는 법
+//   componentDidMount(){ // 컴포넌트 mount시 여기 코드가 실행 됨
+
+//   }
+//   componentDidUpdate(){ // 컴포넌트 update시 여기 코드가 실행 됨
+
+//   }
+//   componentWillUnmount(){ // 컴포넌트 unmount시 여기 코드가 실행 됨
+
+//   }
+// }
+
 function Detail(props) {
   let { id } = useParams();
   let 찾은상품 = props.shoes.find(function (x) {
